@@ -28,8 +28,17 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
     <div class="container">
       <!-- Timeblocks go here -->
+      <script src="./assets/lib/moment/moment.min.js"></script>
+      <script>
+        setInterval(function() {
+          var m = moment().format('MMMM Do YYYY, h:mm:ss a');
+          document.querySelector('#currentDay').textContent = m;
+          console.log(m);
+        }, 1000);
+      </script>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
