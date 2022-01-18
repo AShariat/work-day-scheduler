@@ -34,9 +34,8 @@
       <script src="./assets/lib/moment/moment.min.js"></script>
       <script>
         setInterval(function() {
-          var m = moment().format('MMMM Do YYYY, h:mm:ss a');
+          var m = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
           document.querySelector('#currentDay').textContent = m;
-          console.log(m);
         }, 1000);
       </script>
     </div>
