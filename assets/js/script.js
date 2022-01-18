@@ -9,7 +9,7 @@ setInterval(function() {
 for (var i = 0; i < 9; i++) {
   var workHour = $('<div></div>');
   $(workHour).addClass('row time-block');
-  $('main').append(workHour);
+  $('#schedule').append(workHour);
   var workHourTime = $('<div></div>');
   $(workHourTime).addClass('col-1 hour').text(i+9);
   $(workHour).append(workHourTime);
