@@ -4,7 +4,6 @@ AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 ```
-
 ## Acceptance Criteria
 ```
 GIVEN I am using a daily planner to create a schedule
@@ -21,3 +20,11 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
+## Solved Application
+
+![readme-1](https://user-images.githubusercontent.com/88262115/150198697-9f25cdec-1ca6-4795-8f49-16cfcb4c3631.jpg)
+![readme-2](https://user-images.githubusercontent.com/88262115/150198711-67dbee19-c04a-4398-a23d-ff06ec17dcfe.jpg)
+
+## Link to the Application
+
+https://ashariat.github.io/work-day-scheduler/
