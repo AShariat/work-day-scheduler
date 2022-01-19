@@ -15,7 +15,7 @@ for (var i = 0; i < 9; i++) {
   var workTime = i+9;
   var workHour = $('<div></div>');
   $(workHour).addClass('row time-block');
-  $(workHour).addClass("time-block-"+workTime);
+  $(workHour).attr("id", "time-block-"+workTime);
   $('#schedule').append(workHour);
   var workHourTime = $('<div></div>');
   if (workTime > 12) {
@@ -26,11 +26,13 @@ for (var i = 0; i < 9; i++) {
     workTimeAmPm = workTime + " am";
   }
   $(workHourTime).addClass('col-1 hour').text(workTimeAmPm);
-  $(workHourTime).addClass("hour-"+workTime);
+  $(workHourTime).attr("id", "hour-"+workTime);
   $(workHour).append(workHourTime);
   var workHourTask = $('<input>');
+  var localTask = localStorage.getItem(workTime);
   $(workHourTask).addClass('col-10 description');
-  $(workHourTask).addClass("task-"+workTime);
+  $(workHourTask).attr("id", "task-"+workTime);
+  $(workHourTask).attr("value", localTask);
   // this code block compares the current time to the working hours and color code them accordingly
   if (workTime == timeNumber) {
     $(workHourTask).addClass('present');
@@ -42,18 +44,55 @@ for (var i = 0; i < 9; i++) {
   $(workHour).append(workHourTask);
   var workHourSave = $('<button></button>');
   $(workHourSave).addClass('col-1 saveBtn').text("Save");
-  $(workHourSave).addClass("save-"+workTime);
+  $(workHourSave).attr("id", "save-"+workTime);
   $(workHour).append(workHourSave);
+  // $('#task'+workTime).value = localTask;
 };
 
-$('.save-9').click(function (e) { 
+$('#save-9').click(function (e) { 
   e.preventDefault();
-  var task = document.querySelector('.task-9').value;
-  if (task == "") {
-    console.log("Empty");
-  } else {
-    console.log(task);
-  }  
+  var task = document.querySelector('#task-9').value;
+  localStorage.setItem("9", task);
+});
+$('#save-10').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-10').value;
+  localStorage.setItem("10", task);
+});
+$('#save-11').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-11').value;
+  localStorage.setItem("11", task);
+});
+$('#save-12').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-12').value;
+  localStorage.setItem("12", task);
+});
+$('#save-13').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-13').value;
+  localStorage.setItem("13", task);
+});
+$('#save-14').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-14').value;
+  localStorage.setItem("14", task);
+});
+$('#save-15').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-15').value;
+  localStorage.setItem("15", task);
+});
+$('#save-16').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-16').value;
+  localStorage.setItem("16", task);
+});
+$('#save-17').click(function (e) { 
+  e.preventDefault();
+  var task = document.querySelector('#task-17').value;
+  localStorage.setItem("17", task);
 });
 
 $('#delete-all').click(function(e) {
