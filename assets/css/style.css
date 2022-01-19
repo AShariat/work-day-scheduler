@@ -27,7 +27,7 @@ textarea {
 }
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  height: 100px;
   border-top: 1px solid white;;
 }
 .hour {
@@ -54,4 +54,7 @@ textarea {
 .saveBtn:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+#delete-all {
+  height: 50px;
 }
