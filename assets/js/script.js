@@ -1,23 +1,26 @@
-// this code block does two thing, it first shows the current date and time then refreshes the time every second so our time display line stays updated
+// this code block does two thing, it first shows the current date and time then refreshes the time every second so our time display line stays updated.
 var now = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
 $('#currentDay').text(now);
 setInterval(function() {
   now = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
   $('#currentDay').text(now);
 }, 1000);
-// this code block formats the current time the way I can use it as a number to then compare it with the working hours
+// this code block formats the current time the way I can use it as a number to then compare it with the work hour. it also refreshes the time every second so the timeNumber stays updated.
 var timeNumber = moment().format('HH');
 setInterval(function() {
   var timeNumber = moment().format('HH');
 }, 1000);
-// this code block creates 9 rows for 9 working hours
+// this code block is the main part of our code and we loop through it 9 times because we have 9 working hours.
 for (var i = 0; i < 9; i++) {
+  // here we add 9 to our index because our workTime starts at 9am.
   var workTime = i+9;
+  // here we create 9 rows for 9 working hours.
   var workHour = $('<div></div>');
   $(workHour).addClass('row time-block');
   $(workHour).attr("id", "time-block-"+workTime);
   $('#schedule').append(workHour);
   var workHourTime = $('<div></div>');
+  // here we decide if the time that is showing is am or pm. also we change it from 24h time format into 12h time format.
   if (workTime > 12) {
     var workTimeAmPm = workTime-12 + " pm";
   } else if (workTime == 12) {
@@ -29,11 +32,12 @@ for (var i = 0; i < 9; i++) {
   $(workHourTime).attr("id", "hour-"+workTime);
   $(workHour).append(workHourTime);
   var workHourTask = $('<input>');
-  var localTask = localStorage.getItem(workTime);
   $(workHourTask).addClass('col-10 description');
   $(workHourTask).attr("id", "task-"+workTime);
+  // here we check to see if there is any task saved inside the local storage for that specific time block.
+  var localTask = localStorage.getItem(workTime);
   $(workHourTask).attr("value", localTask);
-  // this code block compares the current time to the working hours and color code them accordingly
+  // this code block compares the current time to the working hours and color code them accordingly.
   if (workTime == timeNumber) {
     $(workHourTask).addClass('present');
   } else if (workTime < timeNumber) {
@@ -46,9 +50,8 @@ for (var i = 0; i < 9; i++) {
   $(workHourSave).addClass('col-1 saveBtn').text("Save");
   $(workHourSave).attr("id", "save-"+workTime);
   $(workHour).append(workHourSave);
-  // $('#task'+workTime).value = localTask;
 };
-
+// this code block saves user input into local storage for each time block.
 $('#save-9').click(function (e) { 
   e.preventDefault();
   var task = document.querySelector('#task-9').value;
@@ -94,7 +97,7 @@ $('#save-17').click(function (e) {
   var task = document.querySelector('#task-17').value;
   localStorage.setItem("17", task);
 });
-
+// this code block clears the local storage and refreshes the page using a "Delete All" button.
 $('#delete-all').click(function(e) {
   e.preventDefault();
   localStorage.clear();
