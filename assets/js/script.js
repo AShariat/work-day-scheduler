@@ -28,15 +28,15 @@ for (var i = 0; i < 9; i++) {
   } else {
     workTimeAmPm = workTime + " am";
   }
-  $(workHourTime).addClass('col-1 hour').text(workTimeAmPm);
+  $(workHourTime).addClass('col-sm-2 col-md-1 hour').text(workTimeAmPm);
   $(workHourTime).attr("id", "hour-"+workTime);
   $(workHour).append(workHourTime);
-  var workHourTask = $('<input>');
-  $(workHourTask).addClass('col-10 description');
+  var workHourTask = $('<textarea></textarea>');
+  $(workHourTask).addClass('col-sm-8 col-md-10 description');
   $(workHourTask).attr("id", "task-"+workTime);
   // here we check to see if there is any task saved inside the local storage for that specific time block.
   var localTask = localStorage.getItem(workTime);
-  $(workHourTask).attr("value", localTask);
+  $(workHourTask).text(localTask);
   // this code block compares the current time to the working hours and color code them accordingly.
   if (workTime == timeNumber) {
     $(workHourTask).addClass('present');
@@ -47,7 +47,7 @@ for (var i = 0; i < 9; i++) {
   }
   $(workHour).append(workHourTask);
   var workHourSave = $('<button></button>');
-  $(workHourSave).addClass('col-1 saveBtn').text("Save");
+  $(workHourSave).addClass('col-sm-2 col-md-1 saveBtn').text("Save");
   $(workHourSave).attr("id", "save-"+workTime);
   $(workHour).append(workHourSave);
 };
